@@ -17,6 +17,7 @@ namespace AlgorithmsHomework
             Console.WriteLine("1) Напишите функцию согласно блок-схеме.");
             Console.WriteLine("2) Реализуйте функцию вычисления числа Фибоначчи.");
             Console.WriteLine("3) Реализуйте класс двусвязного списка и операции вставки, удаления и поиска элемента в нём.");
+            Console.WriteLine("4) Рассчёт расстояния между точками с использованием классов и структур, сравнение затраченного времени.");
             Console.WriteLine();
             Console.Write("Введите номер задания: ");
             input = Console.ReadLine();
@@ -33,6 +34,9 @@ namespace AlgorithmsHomework
                         break;
                     case 3:
                         Task3();
+                        break;
+                    case 4:
+                        Task4();
                         break;
                     default:
                         Console.WriteLine("Задание отстутсвует");
@@ -69,5 +73,11 @@ namespace AlgorithmsHomework
             Task3 task3 = new Task3();
             task3.ShowResult();
         }       
+
+        static void Task4()
+        {
+            Task4 task4 = new Task4();
+            task4.ShowResult();
+        }
     }
 }
