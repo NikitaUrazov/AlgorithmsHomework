@@ -18,7 +18,7 @@ namespace AlgorithmsHomework
             Console.WriteLine("2) Реализуйте функцию вычисления числа Фибоначчи.");
             Console.WriteLine("3) Реализуйте класс двусвязного списка и операции вставки, удаления и поиска элемента в нём.");
             Console.WriteLine("4) Рассчёт расстояния между точками с использованием классов и структур, сравнение затраченного времени.");
-            Console.WriteLine("5) Дерево.");
+            Console.WriteLine("5) Реализуйте класс двоичного дерева поиска с операциями вставки, удаления, поиска.");
             Console.WriteLine();
             Console.Write("Введите номер задания: ");
             input = Console.ReadLine();
@@ -80,7 +80,8 @@ namespace AlgorithmsHomework
 
         static void Task4()
         {
-            // Третье дз пока отсутствует.
+            Task4 task4 = new Task4();
+            task4.ShowResult();
         }
 
         static void Task5()
