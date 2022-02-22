@@ -11,10 +11,17 @@ namespace AlgorithmsHomework
         double Minimum { get; } = -10;
         double Maximum { get; } = 10;
 
+        Random Random { get; set; }
+
         public struct PointStructDouble
         {
             public double X;
             public double Y;
+        }
+
+        public Task4()
+        {
+            Random = new Random();
         }
 
 
@@ -173,8 +180,7 @@ namespace AlgorithmsHomework
 
         public double GetRandomNumber()
         {
-            Random random = new Random();
-            return random.NextDouble() * (Maximum - Minimum) + Minimum;
+            return Random.NextDouble() * (Maximum - Minimum) + Minimum;
         }
     }
 }
