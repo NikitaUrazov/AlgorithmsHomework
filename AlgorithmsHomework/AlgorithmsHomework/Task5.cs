@@ -46,7 +46,7 @@ namespace AlgorithmsHomework
 
         private void ShowTree(BinaryTree tree)
         {
-            tree.ShowArray();
+            tree.ShowTreeArray();
             Console.WriteLine();
             tree.ShowTree();
             Console.WriteLine();

@@ -19,6 +19,7 @@ namespace AlgorithmsHomework
             Console.WriteLine("3) Реализуйте класс двусвязного списка и операции вставки, удаления и поиска элемента в нём.");
             Console.WriteLine("4) Рассчёт расстояния между точками с использованием классов и структур, сравнение затраченного времени.");
             Console.WriteLine("5) Реализуйте класс двоичного дерева поиска с операциями вставки, удаления, поиска.");
+            Console.WriteLine("6) Домашняя работа 5. Реализуйте методы поиска в дереве \"поиск в ширину\" и \"поиск в глубину\".");
             Console.WriteLine();
             Console.Write("Введите номер задания: ");
             input = Console.ReadLine();
@@ -41,6 +42,9 @@ namespace AlgorithmsHomework
                         break;
                     case 5:
                         Task5();
+                        break;
+                    case 6:
+                        Task6();
                         break;
                     default:
                         Console.WriteLine("Задание отстутсвует");
@@ -88,6 +92,12 @@ namespace AlgorithmsHomework
         {
             Task5 task5 = new Task5();
             task5.ShowResult();
+        }
+
+        static void Task6()
+        {
+            Task6 task6 = new Task6();
+            task6.ShowResult();
         }
     }
 }

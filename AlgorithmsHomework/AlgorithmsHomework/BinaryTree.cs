@@ -8,9 +8,13 @@ namespace AlgorithmsHomework
     {
         private BinaryTreeNode Head { get; set; } = null;
 
-        private int[] Array { get; set; } = null;
+        private int[] TreeArray { get; set; } = null;
 
         private int Depth { get; set; }
+
+        private Queue<BinaryTreeNode> NodeQueue { get; set; } = new Queue<BinaryTreeNode>();
+
+        private Stack<BinaryTreeNode> NodeStack { get; set; } = new Stack<BinaryTreeNode>();
 
         public BinaryTree(params int[] values)
         {
@@ -20,30 +24,30 @@ namespace AlgorithmsHomework
                 {
                     Insert(values[i]);
                 }
-                TreeToArray();
+                TreeToTreeArray();
             }
         }
 
         public void DeleteNodeByValue(int value)
         {
-            if (Array == null)
+            if (TreeArray == null)
                 return;
             bool valueExists = false;
-            for (int i = 0; i < Array.Length; i++)
-                if (Array[i] != int.MinValue && Array[i] == value)
+            for (int i = 0; i < TreeArray.Length; i++)
+                if (TreeArray[i] != int.MinValue && TreeArray[i] == value)
                 {
                     valueExists = true;
-                    Array[i] = int.MinValue;
+                    TreeArray[i] = int.MinValue;
                     break;
                 }
 
             if (valueExists)
             {
                 Head = null;
-                for (int i = 1; i < Array.Length; i++)
-                    if (Array[i] != int.MinValue)
-                        Insert(Array[i]);
-                TreeToArray();
+                for (int i = 1; i < TreeArray.Length; i++)
+                    if (TreeArray[i] != int.MinValue)
+                        Insert(TreeArray[i]);
+                TreeToTreeArray();
             }
             else
             {
@@ -57,20 +61,20 @@ namespace AlgorithmsHomework
         public void ShowTree()
         {
             Console.WriteLine("Бинарное дерево:");
-            if (Array == null)
+            if (TreeArray == null)
             {
-                Console.WriteLine("Error. Null array.");
+                Console.WriteLine("Error. Null TreeArray.");
                 return;
             }
 
-            if (Array.Length == 1)
+            if (TreeArray.Length == 1)
             {
-                Console.WriteLine("Error. Incorrect array.");
+                Console.WriteLine("Error. Incorrect TreeArray.");
                 return;
             }
-            else if (Array.Length == 2)
+            else if (TreeArray.Length == 2)
             {
-                Console.WriteLine(Array[1]);
+                Console.WriteLine(TreeArray[1]);
                 return;
             }
             else
@@ -87,7 +91,7 @@ namespace AlgorithmsHomework
                 int spaceSize = 1;
                 int marginSize = 0;
 
-                for (int i = Array.Length - 1, n = 0, j = output.Length - 1; i >= 1; i--)
+                for (int i = TreeArray.Length - 1, n = 0, j = output.Length - 1; i >= 1; i--)
                 {
                     if (n != nElemInStr)
                     {
@@ -103,21 +107,21 @@ namespace AlgorithmsHomework
                         j--;
                     }
 
-                    if (Array[i] == int.MinValue)
+                    if (TreeArray[i] == int.MinValue)
                     {
                         output[j] = AddSpaces(output[j], spaceSize * outputFormat);
                         for (int k = 0; k < outputFormat; k++)
                             output[j] = "_" + output[j];
                     }
-                    else if (Array[i] >= 0)
+                    else if (TreeArray[i] >= 0)
                     {
                         output[j] = AddSpaces(output[j], spaceSize * outputFormat);
-                        output[j] = Array[i].ToString(strFormat) + output[j];
+                        output[j] = TreeArray[i].ToString(strFormat) + output[j];
                     }
                     else
                     {
                         output[j] = AddSpaces(output[j], spaceSize * outputFormat - 1);
-                        output[j] = Array[i].ToString(strFormat) + output[j];
+                        output[j] = TreeArray[i].ToString(strFormat) + output[j];
                     }
 
                     if (i == 1)
@@ -141,12 +145,12 @@ namespace AlgorithmsHomework
         {
             int min = int.MaxValue;
             int max = int.MinValue;
-            for (int i = 0; i < Array.Length; i++)
+            for (int i = 0; i < TreeArray.Length; i++)
             {
-                if (Array[i] < min && Array[i] != int.MinValue)
-                    min = Array[i];
-                if (Array[i] > max)
-                    max = Array[i];
+                if (TreeArray[i] < min && TreeArray[i] != int.MinValue)
+                    min = TreeArray[i];
+                if (TreeArray[i] > max)
+                    max = TreeArray[i];
             }
 
             max = Math.Abs(max);
@@ -199,11 +203,11 @@ namespace AlgorithmsHomework
         /// <summary>
         /// Запись бинарного дерева в массив
         /// </summary>
-        private void TreeToArray()
+        private void TreeToTreeArray()
         {
             if (Head == null)
             {
-                Array = null;
+                TreeArray = null;
                 return;
             }
             Depth = GetDepth();
@@ -214,34 +218,34 @@ namespace AlgorithmsHomework
                 size = size * 2;
             }
 
-            Array = new int[size];
+            TreeArray = new int[size];
 
-            for (int i = 0; i < Array.Length; i++)
-                Array[i] = int.MinValue;
+            for (int i = 0; i < TreeArray.Length; i++)
+                TreeArray[i] = int.MinValue;
 
-            Array[1] = Head.Value;
+            TreeArray[1] = Head.Value;
 
-            if (Array.Length == 2)
+            if (TreeArray.Length == 2)
                 return;
 
-            for (int i = 2; i < Array.Length; i++)
+            for (int i = 2; i < TreeArray.Length; i++)
             {
                 if (i % 2 == 0)
                 {
-                    int parentValue = Array[i / 2];
+                    int parentValue = TreeArray[i / 2];
                     BinaryTreeNode parent = GetNodeByValue(parentValue);
 
                     if (parent != null)
                         if (parent.Left != null)
-                            Array[i] = parent.Left.Value;
+                            TreeArray[i] = parent.Left.Value;
                 }
                 else
                 {
-                    int parentValue = Array[(i - 1) / 2];
+                    int parentValue = TreeArray[(i - 1) / 2];
                     BinaryTreeNode parent = GetNodeByValue(parentValue);
                     if (parent != null)
                         if (parent.Right != null)
-                            Array[i] = parent.Right.Value;
+                            TreeArray[i] = parent.Right.Value;
                 }
             }
         }
@@ -249,21 +253,21 @@ namespace AlgorithmsHomework
         /// <summary>
         /// Вывод массива бинарного дерева в консоль
         /// </summary>
-        public void ShowArray()
+        public void ShowTreeArray()
         {
             Console.WriteLine("Массив бинарного дерева:");
-            if (Array == null)
+            if (TreeArray == null)
             {
                 Console.WriteLine("null");
             }
             else
             {
-                for (int i = 0; i < Array.Length; i++)
+                for (int i = 0; i < TreeArray.Length; i++)
                 {
-                    if (Array[i] == int.MinValue)
+                    if (TreeArray[i] == int.MinValue)
                         Console.Write(i + ") ");
                     else
-                        Console.Write(i + ")" + Array[i] + " ");
+                        Console.Write(i + ")" + TreeArray[i] + " ");
                 }
             }
             Console.WriteLine();
@@ -336,7 +340,7 @@ namespace AlgorithmsHomework
         public void AddNode(int value)
         {
             Insert(value);
-            TreeToArray();
+            TreeToTreeArray();
         }
 
         /// <summary>
@@ -385,6 +389,82 @@ namespace AlgorithmsHomework
                 {
                     Console.WriteLine("Элемент " + value + " не добален: Такой элемент уже присутствует.");
                     return;
+                }
+            }
+        }
+
+        public BinaryTreeNode BFS(int value)
+        {
+            NodeQueue.Clear();
+            BinaryTreeNode currentNode = Head;
+            if (currentNode != null)
+                NodeQueue.Enqueue(currentNode);
+            Console.WriteLine("Кладём голову дерева в очередь.");
+
+            while (true)
+            {
+                if (NodeQueue.Count == 0)
+                {
+                    Console.WriteLine("Очередь пуста.");
+                    return null;
+                }
+                else
+                {
+                    currentNode = NodeQueue.Dequeue();
+                    Console.WriteLine($"Вынимаем элемент {currentNode.Value} из очереди.");
+                    if (currentNode.Value == value)
+                    {
+                        Console.WriteLine("Искомый элемент найден.");
+                        return currentNode;
+                    }
+                    if (currentNode.Left != null)
+                    {
+                        Console.WriteLine($"Добавляем элемент {currentNode.Left.Value} в очередь.");
+                        NodeQueue.Enqueue(currentNode.Left);
+                    }
+                    if (currentNode.Right != null)
+                    {
+                        Console.WriteLine($"Добавляем элемент {currentNode.Right.Value} в очередь.");
+                        NodeQueue.Enqueue(currentNode.Right);
+                    }
+                }
+            }
+        }
+
+        public BinaryTreeNode DFS(int value)
+        {
+            NodeStack.Clear();
+            BinaryTreeNode currentNode = Head;
+            if (currentNode != null)
+                NodeStack.Push(currentNode);
+            Console.WriteLine("Кладём голову дерева в стек.");
+
+            while (true)
+            {
+                if (NodeStack.Count == 0)
+                {
+                    Console.WriteLine("Стек пуст.");
+                    return null;
+                }
+                else
+                {
+                    currentNode = NodeStack.Pop();
+                    Console.WriteLine($"Вынимаем из стека элемент {currentNode.Value}.");
+                    if (currentNode.Value == value)
+                    {
+                        Console.WriteLine("Искомый элемент найден.");
+                        return currentNode;
+                    }
+                    if (currentNode.Right != null)
+                    {
+                        Console.WriteLine($"Добавляем элемент {currentNode.Right.Value} в стек.");
+                        NodeStack.Push(currentNode.Right);
+                    }
+                    if (currentNode.Left != null)
+                    {
+                        Console.WriteLine($"Добавляем элемент {currentNode.Left.Value} в стек.");
+                        NodeStack.Push(currentNode.Left);
+                    }
                 }
             }
         }
