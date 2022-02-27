@@ -4,8 +4,12 @@ using System.Text;
 
 namespace AlgorithmsHomework
 {
-    class Task5
+    class Task5 : ITask
     {
+        public int TaskID => 5;
+
+        public string TaskName => "5) Реализуйте класс двоичного дерева поиска с операциями вставки, удаления, поиска.";
+
         public void ShowResult()
         {
             Console.Clear();

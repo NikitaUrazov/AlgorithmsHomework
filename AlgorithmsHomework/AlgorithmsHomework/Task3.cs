@@ -4,8 +4,12 @@ using System.Text;
 
 namespace AlgorithmsHomework
 {
-    class Task3
+    class Task3 : ITask
     {
+        public int TaskID => 3;
+
+        public string TaskName => "3) Реализуйте класс двусвязного списка и операции вставки, удаления и поиска элемента в нём.";
+
         public void ShowResult()
         {
             Console.Clear();

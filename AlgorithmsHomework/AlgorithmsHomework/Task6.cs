@@ -4,8 +4,12 @@ using System.Text;
 
 namespace AlgorithmsHomework
 {
-    class Task6
+    class Task6 : ITask
     {
+        public int TaskID => 6;
+
+        public string TaskName => "6) Домашняя работа 5. Реализуйте методы поиска в дереве \"поиск в ширину\" и \"поиск в глубину\".";
+
         public void ShowResult()
         {
             Console.Clear();

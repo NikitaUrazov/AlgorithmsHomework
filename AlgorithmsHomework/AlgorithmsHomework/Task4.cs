@@ -6,12 +6,16 @@ using System.Diagnostics;
 
 namespace AlgorithmsHomework
 {
-    class Task4
+    class Task4 : ITask
     {
         double Minimum { get; } = -10;
         double Maximum { get; } = 10;
 
         Random Random { get; set; }
+
+        public int TaskID => 4;
+
+        public string TaskName => "4) Рассчёт расстояния между точками с использованием классов и структур, сравнение затраченного времени.";
 
         public struct PointStructDouble
         {

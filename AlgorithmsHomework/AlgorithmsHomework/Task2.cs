@@ -4,13 +4,21 @@ using System.Text;
 
 namespace AlgorithmsHomework
 {
-    class Task2
+    class Task2 : ITask
     {
         public int Number { get; set; }
         public string Input { get; set; }
 
+        public int TaskID => 2;
+
+        public string TaskName => "2) Реализуйте функцию вычисления числа Фибоначчи.";
+
         public void ShowResult()
         {
+            GetNumber();
+            if (!IsNumberCorrect())
+                return;
+
             Console.WriteLine("Число Фибоначчи(" + Number + ") = " + GetFibonacciNumber(Number, 0, 1));
         }
 

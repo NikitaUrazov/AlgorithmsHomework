@@ -4,14 +4,22 @@ using System.Text;
 
 namespace AlgorithmsHomework
 {
-    class Task1
+    class Task1 : ITask
     {
         public int Number { get; set; }
 
         public string Input { get; set; }
 
+        public int TaskID => 1;
+
+        public string TaskName => "1) Напишите функцию согласно блок-схеме.";
+
         public void ShowResult()
         {
+            GetNumber();
+            if (!IsNumberCorrect())
+                return;
+
             if (IsSimple(Number))
                 Console.WriteLine("Простое.");
             else
