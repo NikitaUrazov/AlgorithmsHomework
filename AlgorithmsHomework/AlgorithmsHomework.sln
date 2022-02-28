@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgorithmsHomework", "AlgorithmsHomework\AlgorithmsHomework.csproj", "{D7D3A2AD-6113-4227-BFD4-C994E585A733}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlgorithmsHomework", "AlgorithmsHomework\AlgorithmsHomework.csproj", "{D7D3A2AD-6113-4227-BFD4-C994E585A733}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TasksLibrary", "TasksLibrary\TasksLibrary.csproj", "{6463D3B0-6884-4E41-AE5A-94F7D2EFEFB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterfaceLibrary", "InterfaceLibrary\InterfaceLibrary.csproj", "{65E5444D-A2F2-49FC-8EBF-F16DC9A14EC3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{D7D3A2AD-6113-4227-BFD4-C994E585A733}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7D3A2AD-6113-4227-BFD4-C994E585A733}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7D3A2AD-6113-4227-BFD4-C994E585A733}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6463D3B0-6884-4E41-AE5A-94F7D2EFEFB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6463D3B0-6884-4E41-AE5A-94F7D2EFEFB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6463D3B0-6884-4E41-AE5A-94F7D2EFEFB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6463D3B0-6884-4E41-AE5A-94F7D2EFEFB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65E5444D-A2F2-49FC-8EBF-F16DC9A14EC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65E5444D-A2F2-49FC-8EBF-F16DC9A14EC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65E5444D-A2F2-49FC-8EBF-F16DC9A14EC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65E5444D-A2F2-49FC-8EBF-F16DC9A14EC3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

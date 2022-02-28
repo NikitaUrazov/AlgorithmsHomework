@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Reflection;
+using System.Collections.Generic;
 
 namespace AlgorithmsHomework
 {
@@ -11,15 +13,14 @@ namespace AlgorithmsHomework
 
         static void Menu()
         {
-            ITask[] menu =
-            {
-                new Task1(),
-                new Task2(),
-                new Task3(),
-                new Task4(),
-                new Task5(),
-                new Task6()
-            };
+            Assembly asm = Assembly.LoadFrom("..\\..\\..\\..\\TasksLibrary\\obj\\Debug\\netstandard2.0\\TasksLibrary.dll");
+            Type[] types = asm.GetTypes();
+
+            List<object> menu = new List<object>();
+
+            foreach (Type type in types)
+                if (type.GetInterface("ITask") != null)
+                    menu.Add(Activator.CreateInstance(type));
 
             foreach (ITask task in menu)
                 Console.WriteLine(task.TaskName);
