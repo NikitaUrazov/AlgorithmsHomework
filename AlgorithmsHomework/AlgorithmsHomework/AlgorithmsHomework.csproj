@@ -6,7 +6,25 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="BinaryTree.cs" />
+    <Compile Remove="BinaryTreeNode.cs" />
+    <Compile Remove="ITask.cs" />
+    <Compile Remove="Node.cs" />
+    <Compile Remove="PointClassDouble.cs" />
+    <Compile Remove="Task1.cs" />
+    <Compile Remove="Task2.cs" />
+    <Compile Remove="Task3.cs" />
+    <Compile Remove="Task4.cs" />
+    <Compile Remove="Task5.cs" />
+    <Compile Remove="Task6.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="BenchmarkDotNet" Version="0.13.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\InterfaceLibrary\InterfaceLibrary.csproj" />
   </ItemGroup>
 
 </Project>

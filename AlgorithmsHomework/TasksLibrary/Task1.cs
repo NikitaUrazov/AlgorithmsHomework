@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AlgorithmsHomework
 {
-    class Task1 : ITask
+    public class Task1 : ITask
     {
         public int Number { get; set; }
 

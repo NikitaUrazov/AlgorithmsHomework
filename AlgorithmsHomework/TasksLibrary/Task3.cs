@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AlgorithmsHomework
 {
-    class Task3 : ITask
+    public class Task3 : ITask
     {
         public int TaskID => 3;
 

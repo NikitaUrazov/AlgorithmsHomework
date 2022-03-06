@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AlgorithmsHomework
 {
-    class BinaryTree
+    public class BinaryTree
     {
         private BinaryTreeNode Head { get; set; } = null;
 

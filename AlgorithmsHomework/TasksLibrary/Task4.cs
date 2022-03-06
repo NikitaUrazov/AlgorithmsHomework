@@ -6,7 +6,7 @@ using System.Diagnostics;
 
 namespace AlgorithmsHomework
 {
-    class Task4 : ITask
+    public class Task4 : ITask
     {
         double Minimum { get; } = -10;
         double Maximum { get; } = 10;
